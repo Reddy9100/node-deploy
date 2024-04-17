@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
@@ -8,10 +9,10 @@ app.use(cors());
 app.use(express.json())
 
 const dbconfig = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "voters_schema",
-  password: "root123"
+  host: process.env.Localhost,
+  user: process.env.user,
+  database: process.env.Database,
+  password: process.env.Password
 });
 
 app.listen(8000, () => {
